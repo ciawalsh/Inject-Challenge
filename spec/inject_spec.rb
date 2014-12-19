@@ -23,17 +23,19 @@ describe Array do
 
 	context 'With a symbol' do
 
-		xit 'Can add numbers together' do
+		it 'Can add numbers together' do
 			expect([1,2,3,4].inject(:+)).to eq 10
-			expect([1,2,3,4].my_inject(:+)).to eq 10
+			expect([1,2,3,4].my_inject(&:+)).to eq 10
 		end
 
 		it 'Can minus numbers from each other' do
 			expect([1,2,3,4].inject(:-)).to eq -8
+			expect([1,2,3,4].my_inject(&:-)).to eq -8
 		end
 
 		it 'Can multiply numbers together' do
 			expect([1,2,3,4].inject(:*)).to eq 24
+			expect([1,2,3,4].my_inject(&:*)).to eq 24
 		end
 
 	end
@@ -61,14 +63,17 @@ describe Array do
 
 		it 'Can add numbers together' do
 			expect([1,2,3,4].inject(10, :+)).to eq 20
+			expect([1,2,3,4].my_inject(10, &:+)).to eq 20
 		end
 
 		it 'Can minus numbers from each other' do
 			expect([1,2,3,4].inject(10, :-)).to eq 0
+			expect([1,2,3,4].inject(10, &:-)).to eq 0
 		end
 
 		it 'Can multiply numbers together' do
 			expect([1,2,3,4].inject(10, :*)).to eq 240
+			expect([1,2,3,4].inject(10, &:*)).to eq 240
 		end
 
 	end
