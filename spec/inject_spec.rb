@@ -68,12 +68,12 @@ describe Array do
 
 		it 'Can minus numbers from each other' do
 			expect([1,2,3,4].inject(10, :-)).to eq 0
-			expect([1,2,3,4].inject(10, &:-)).to eq 0
+			expect([1,2,3,4].my_inject(10, &:-)).to eq 0
 		end
 
 		it 'Can multiply numbers together' do
 			expect([1,2,3,4].inject(10, :*)).to eq 240
-			expect([1,2,3,4].inject(10, &:*)).to eq 240
+			expect([1,2,3,4].my_inject(10, &:*)).to eq 240
 		end
 
 	end
